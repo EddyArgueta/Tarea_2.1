@@ -21,7 +21,7 @@ print(df.info())
 print(f"Resumen estadístico:")
 print(df.describe())
 
-# 5. Vamos a intentar un modelo básico como línea base
+
 # Eliminamos columnas no numéricas si las hay
 df = df.select_dtypes(include=["int64", "float64"])
 
@@ -39,10 +39,10 @@ modelo = LinearRegression()
 modelo.fit(X_train, y_train)
 
 # Evaluar precisión
-train_score = modelo.score(X_train, y_train)
-test_score = modelo.score(X_test, y_test)
+train_datos = modelo.score(X_train, y_train)
+test_datos = modelo.score(X_test, y_test)
 
-print(f"entrenamiento : {train_score:.4f}")
-print(f"prueba : {test_score:.4f}")
+print(f"entrenamiento : {train_datos}")
+print(f"prueba : {test_datos}")
 
 plt.show()

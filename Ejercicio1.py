@@ -44,3 +44,7 @@ test_datos = modelo.score(X_test, y_test)
 
 print(f"entrenamiento : {train_datos}")
 print(f"prueba : {test_datos}")
+
+# Hasta este punto, mis resultados fueron:
+# entrenamiento : 0.6360185727313741
+# prueba : 0.640086568899372

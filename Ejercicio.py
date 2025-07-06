@@ -1,9 +1,6 @@
-# housing_regresion_1.py
-
 import pandas as pd
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import r2_score
 import matplotlib.pyplot as plt
 
 # Vamos a empezar a cargar el archivo CSV
@@ -17,6 +14,9 @@ print(df.head())
 print(f"Información del DataFrame:")
 print(df.info())
 
+# Elimino filas con cualquier valor nulo
+df = df.dropna()
+
 # Estadísticas descriptivas para detectar datos limitados
 print(f"Resumen estadístico:")
 print(df.describe())
@@ -25,7 +25,7 @@ print(df.describe())
 # Eliminamos columnas no numéricas si las hay
 df = df.select_dtypes(include=["int64", "float64"])
 
-# Separar variables
+# Separo variables dependientes e independientes
 X = df.drop("median_house_value", axis=1)
 y = df["median_house_value"]
 
@@ -44,5 +44,3 @@ test_datos = modelo.score(X_test, y_test)
 
 print(f"entrenamiento : {train_datos}")
 print(f"prueba : {test_datos}")
-
-plt.show()
